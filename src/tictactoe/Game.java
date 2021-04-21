@@ -40,6 +40,26 @@ public class Game {
         }
     }
 
+    public void colCheck(Board board) {
+        String[][] gameBoard = board.currentBoard();
+        // Checking for X win
+        for (int col = 0; col < gameBoard.length; col++) {
+            if (gameBoard[0][col].contains("X")) {
+                if (gameBoard[0][col] == gameBoard[1][col] && gameBoard[1][col] == gameBoard[2][col]) {
+                    xWin = true;
+                    break;
+                }
+            }
+            // Checking for O win
+            if (gameBoard[0][col].contains("O")) {
+                if (gameBoard[0][col] == gameBoard[1][col] && gameBoard[1][col] == gameBoard[2][col]) {
+                    oWin = true;
+                    break;
+                }
+            }
+        }
+    }
+
     public void diagCheck(Board board) {
         String[][] gameBoard = board.currentBoard();
 
