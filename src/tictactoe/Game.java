@@ -7,6 +7,8 @@ public class Game {
     private boolean draw;
     private int inputRow;
     private int inputCol;
+    private int cpuRow;
+    private int cpuCol;
     private final Scanner scanner;
 
     public Game() {
@@ -112,6 +114,70 @@ public class Game {
         }
     }
 
+    public void cpuCoordinates(AI cpu, Board board) {
+
+        String[][] gameBoard = board.currentBoard();
+
+        while (true) {
+            try {
+                System.out.println("Making move level \"easy\"");
+                cpuRow = cpu.randomNumber();
+                cpuCol = cpu.randomNumber();
+
+                if (cpuRow < 0 || cpuCol < 0 || cpuRow > 3 || cpuCol > 3) {
+                    continue;
+                }
+                if (gameBoard[cpuRow - 1][cpuCol - 1].contains("X") ||
+                        gameBoard[cpuRow - 1][cpuCol - 1].contains("O")){
+                    continue;
+                }
+            } catch (NumberFormatException e) {
+                continue;
+            }
+            break;
+        }
+    }
+
+    public void gameState(Board board) {
+
+        rowCheck(board);
+        diagCheck(board);
+        drawCheck(board);
+        colCheck(board);
+    }
+
+    public void game() {
+        Board board = new Board();
+        AI cpu = new AI();
+        board.emptyBoard();
+
+        while (true) {
+
+            gameState(board);
+
+            if (xWin || xWin && draw) {
+                System.out.println("X wins");
+                break;
+            }
+            if (oWin || oWin && draw) {
+                System.out.println("O wins");
+                break;
+            }
+            if (draw) {
+                System.out.println("Draw");
+                break;
+            }
+
+            if (board.getX() < board.getO() || board.getX() == board.getO()) {
+                playerCoordinates(board);
+                board.updateBoard(inputRow, inputCol);
+            } else {
+                cpuCoordinates(cpu, board);
+                board.updateBoard(cpuRow, cpuCol);
+            }
+            board.printBoard();
+        }
+    }
 
     public void start() {
 
