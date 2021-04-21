@@ -91,21 +91,7 @@ public class Game {
         draw = board.getX() + board.getO() == 9;
     }
 
-    public void result() {
-
-        if (xWin) {
-            System.out.println("X wins");
-        } else if (oWin) {
-            System.out.println("O wins");
-        } else if (draw) {
-            System.out.println("Draw");
-        } else {
-            System.out.println("Game not finished");
-        }
-
-    }
-
-    public void getCoordinates(Board board) {
+    public void playerCoordinates(Board board) {
 
         String[][] gameBoard = board.currentBoard();
 
