@@ -186,21 +186,6 @@ public class Game {
     }
 
     public void start() {
-
-        Board board = new Board();
-
-        System.out.print("Enter the cells: ");
-        String[] input = scanner.nextLine().split("");
-        board.setBoard(input);
-        board.printBoard();
-
-        getCoordinates(board);
-        board.updateBoard(inputRow, inputCol);
-        board.printBoard();
-
-        rowCheck(board);
-        diagCheck(board);
-        drawCheck(board);
-        result();
+        game();
     }
 }
