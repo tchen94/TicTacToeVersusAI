@@ -46,8 +46,10 @@ public class Board {
     public void updateBoard(int row, int col) {
         if (x > o) {
             board[row - 1][col - 1] = "O";
+            o++;
         } else if (o > x || o == x) {
             board[row - 1][col - 1] = "X";
+            x++;
         }
     }
 
