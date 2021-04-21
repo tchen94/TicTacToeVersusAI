@@ -23,16 +23,16 @@ public class Game {
         String[][] gameBoard = board.currentBoard();
 
         // Checking for X win
-        for (String[] strings : gameBoard) {
-            if (strings[0].contains("X")) {
-                if (strings[0].equals(strings[1]) && strings[1].equals(strings[2])) {
+        for (String[] letter : gameBoard) {
+            if (letter[0].contains("X")) {
+                if (letter[0].equals(letter[1]) && letter[1].equals(letter[2])) {
                     xWin = true;
                     break;
                 }
             }
             // Checking for O win
-            if (strings[0].contains("O")) {
-                if (strings[0].equals(strings[1]) && strings[1].equals(strings[2])) {
+            if (letter[0].contains("O")) {
+                if (letter[0].equals(letter[1]) && letter[1].equals(letter[2])) {
                     oWin = true;
                     break;
                 }
