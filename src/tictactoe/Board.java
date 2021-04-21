@@ -9,25 +9,16 @@ public class Board {
         int y = 0;
     }
 
-    public void setBoard(String[] input) {
-        int pos = 0;
+    public void emptyBoard() {
 
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
                 {
-                    board[row][col] = input[pos];
-                    pos++;
+                    board[row][col] = " ";
                 }
             }
         }
-
-        for (String string : input) {
-            if (string.contains("X")) {
-                x++;
-            } else if (string.contains("O")) {
-                o++;
-            }
-        }
+        printBoard();
     }
 
     public void printBoard() {
