@@ -163,14 +163,17 @@ public class Game {
 
             if (xWin || xWin && draw) {
                 System.out.println("X wins");
+                reset();
                 break;
             }
             if (oWin || oWin && draw) {
                 System.out.println("O wins");
+                reset();
                 break;
             }
             if (draw) {
                 System.out.println("Draw");
+                reset();
                 break;
             }
 
