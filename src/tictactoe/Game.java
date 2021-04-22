@@ -152,7 +152,7 @@ public class Game {
         colCheck(board);
     }
 
-    public void game() {
+    public void playerVersusCPU() {
         Board board = new Board();
         AI cpu = new AI();
         board.emptyBoard();
@@ -185,6 +185,141 @@ public class Game {
                 board.updateBoard(cpuRow, cpuCol);
             }
             board.printBoard();
+        }
+    }
+
+    private void cpuVersusPlayer() {
+        Board board = new Board();
+        AI cpu = new AI();
+        board.emptyBoard();
+
+        while (true) {
+
+            gameState(board);
+
+            if (xWin || xWin && draw) {
+                System.out.println("X wins");
+                reset();
+                break;
+            }
+            if (oWin || oWin && draw) {
+                System.out.println("O wins");
+                reset();
+                break;
+            }
+            if (draw) {
+                System.out.println("Draw");
+                reset();
+                break;
+            }
+
+            if (board.getX() < board.getO() || board.getX() == board.getO()) {
+                cpuCoordinates(cpu, board);
+                board.updateBoard(cpuRow, cpuCol);
+            } else {
+                playerCoordinates(board);
+                board.updateBoard(inputRow, inputCol);
+            }
+            board.printBoard();
+        }
+    }
+
+
+    public void playerVersusPlayer() {
+        Board board = new Board();
+        board.emptyBoard();
+
+        while (true) {
+
+            gameState(board);
+
+            if (xWin || xWin && draw) {
+                System.out.println("X wins");
+                reset();
+                break;
+            }
+            if (oWin || oWin && draw) {
+                System.out.println("O wins");
+                reset();
+                break;
+            }
+            if (draw) {
+                System.out.println("Draw");
+                reset();
+                break;
+            }
+
+            playerCoordinates(board);
+            board.updateBoard(inputRow, inputCol);
+            board.printBoard();
+        }
+    }
+
+    public void cpuVersusCPU() {
+        Board board = new Board();
+        AI cpu = new AI();
+        board.emptyBoard();
+
+        while (true) {
+
+            gameState(board);
+
+            if (xWin || xWin && draw) {
+                System.out.println("X wins");
+                reset();
+                break;
+            }
+            if (oWin || oWin && draw) {
+                System.out.println("O wins");
+                reset();
+                break;
+            }
+            if (draw) {
+                System.out.println("Draw");
+                reset();
+                break;
+            }
+
+            cpuCoordinates(cpu, board);
+            board.updateBoard(cpuRow, cpuCol);
+            board.printBoard();
+        }
+    }
+
+    public void reset() {
+        oWin = false;
+        xWin = false;
+        draw = false;
+    }
+
+    public void gameMenu() {
+
+        while (true) {
+            System.out.print("Input command: ");
+
+            String input = scanner.nextLine();
+
+            if (input.equals("exit")) {
+                break;
+            }
+
+            switch (input) {
+                case "start easy easy":
+                    cpuVersusCPU();
+                    break;
+                case "start easy user":
+                    cpuVersusPlayer();
+                    break;
+                case "start user easy":
+                    playerVersusCPU();
+                    break;
+                case "start user user":
+                    playerVersusPlayer();
+                    break;
+                default:
+                    System.out.println("Bad parameters!");
+                    break;
+            }
         }
     }
 
