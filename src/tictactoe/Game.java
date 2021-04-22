@@ -324,6 +324,6 @@ public class Game {
     }
 
     public void start() {
-        game();
+        gameMenu();
     }
 }
