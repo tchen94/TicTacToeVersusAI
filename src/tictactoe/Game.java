@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Game {
 
+    private final Scanner scanner;
     private boolean xWin;
     private boolean oWin;
     private boolean draw;
