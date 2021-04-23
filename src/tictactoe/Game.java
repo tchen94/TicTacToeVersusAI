@@ -120,30 +120,6 @@ public class Game {
         }
     }
 
-    public void cpuCoordinates(AI cpu, Board board) {
-
-        String[][] gameBoard = board.currentBoard();
-
-        while (true) {
-            try {
-                System.out.println("Making move level \"easy\"");
-                cpuRow = cpu.randomNumber();
-                cpuCol = cpu.randomNumber();
-
-                if (cpuRow < 0 || cpuCol < 0 || cpuRow > 3 || cpuCol > 3) {
-                    continue;
-                }
-                if (gameBoard[cpuRow - 1][cpuCol - 1].contains("X") ||
-                        gameBoard[cpuRow - 1][cpuCol - 1].contains("O")){
-                    continue;
-                }
-            } catch (NumberFormatException e) {
-                continue;
-            }
-            break;
-        }
-    }
-
     public void gameState(Board board) {
 
         rowCheck(board);
