@@ -36,4 +36,8 @@ public class AI {
 
         board.updateBoard(row, col);
     }
+
+    public void mediumCPU(Board board) {
+
+    }
 }
