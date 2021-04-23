@@ -257,6 +257,15 @@ public class Game {
         }
     }
 
+    public void playerVersusMediumCPU() {
+    }
+
+    public void mediumCPUVersusPlayer() {
+    }
+
+    public void mediumCPUVersusMediumCPU() {
+    }
+
     public void reset() {
         oWin = false;
         xWin = false;
