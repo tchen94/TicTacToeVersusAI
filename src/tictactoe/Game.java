@@ -8,9 +8,7 @@ public class Game {
     private boolean draw;
     private int inputRow;
     private int inputCol;
-    private int cpuRow;
-    private int cpuCol;
-    private final Scanner scanner;
+    private final AI cpu;
 
     public Game() {
 
@@ -18,6 +16,7 @@ public class Game {
         this.xWin = false;
         this.oWin = false;
         this.draw = false;
+        this.cpu = new AI();
     }
 
     public void rowCheck(Board board) {
