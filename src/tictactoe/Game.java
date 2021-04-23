@@ -287,11 +287,18 @@ public class Game {
                 case "start easy easy":
                     cpuVersusCPU();
                     break;
+                case "start medium medium":
+                    mediumCPUVersusMediumCPU();
                 case "start easy user":
                     cpuVersusPlayer();
                     break;
+                case "start medium user":
+                    mediumCPUVersusPlayer();
                 case "start user easy":
                     playerVersusCPU();
+                    break;
+                case "start user medium":
+                    playerVersusMediumCPU();
                     break;
                 case "start user user":
                     playerVersusPlayer();
