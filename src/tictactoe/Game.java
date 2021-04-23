@@ -130,7 +130,6 @@ public class Game {
 
     public void playerVersusCPU() {
         Board board = new Board();
-        AI cpu = new AI();
         board.emptyBoard();
 
         while (true) {
@@ -157,8 +156,7 @@ public class Game {
                 playerCoordinates(board);
                 board.updateBoard(inputRow, inputCol);
             } else {
-                cpuCoordinates(cpu, board);
-                board.updateBoard(cpuRow, cpuCol);
+                cpu.easyCPU(board);
             }
             board.printBoard();
         }
@@ -166,7 +164,6 @@ public class Game {
 
     private void cpuVersusPlayer() {
         Board board = new Board();
-        AI cpu = new AI();
         board.emptyBoard();
 
         while (true) {
@@ -190,8 +187,7 @@ public class Game {
             }
 
             if (board.getX() < board.getO() || board.getX() == board.getO()) {
-                cpuCoordinates(cpu, board);
-                board.updateBoard(cpuRow, cpuCol);
+                cpu.easyCPU(board);
             } else {
                 playerCoordinates(board);
                 board.updateBoard(inputRow, inputCol);
@@ -256,8 +252,7 @@ public class Game {
                 break;
             }
 
-            cpuCoordinates(cpu, board);
-            board.updateBoard(cpuRow, cpuCol);
+            cpu.easyCPU(board);
             board.printBoard();
         }
     }
