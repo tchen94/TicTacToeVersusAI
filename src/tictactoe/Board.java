@@ -1,12 +1,12 @@
 public class Board {
     private final String[][] board;
-    int x;
-    int o;
+    private int x;
+    private int o;
 
     public Board() {
         this.board = new String[3][3];
-        int x = 0;
-        int y = 0;
+        this.x = 0;
+        this.o = 0;
     }
 
     public void emptyBoard() {
