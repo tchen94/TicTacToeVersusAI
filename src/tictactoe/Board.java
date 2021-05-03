@@ -43,13 +43,25 @@ public class Board {
         return o;
     }
 
-    public void updateBoard(int row, int col) {
-        if (x > o) {
-            board[row - 1][col - 1] = "O";
-            o++;
-        } else if (o > x || o == x) {
-            board[row - 1][col - 1] = "X";
-            x++;
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setO(int o) {
+        this.o = o;
+    }
+
+    public void updateBoard(int row, int col, String letter) {
+
+        switch (letter) {
+            case "X":
+                board[row - 1][col - 1] = "X";
+                x++;
+                break;
+            case "O":
+                board[row - 1][col - 1] = "O";
+                o++;
+                break;
         }
     }
 
