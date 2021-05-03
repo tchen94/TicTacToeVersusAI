@@ -341,7 +341,42 @@ public class Game {
         }
     }
 
-    public void mediumCPUVersusMediumCPU() {
+    public int evaluate(Board board) {
+        String[][] gameBoard = board.currentBoard();
+
+        for (String[] position : gameBoard) {
+            if (position[0].equals(position[1]) && position[1].equals(position[2])) {
+                if (position[0].contains("X")) {
+                    return +1;
+                } else if (position[0].contains("O")) {
+                    return -1;
+                }
+            }
+        }
+        for (int col = 0; col < gameBoard[0].length; col++) {
+            if (gameBoard[0][col].equals(gameBoard[1][col]) && gameBoard[1][col].equals(gameBoard[2][col])) {
+                if (gameBoard[0][col].contains("X")) {
+                    return +1;
+                } else if (gameBoard[0][col].contains("O")) {
+                    return -1;
+                }
+            }
+        }
+        if (gameBoard[0][0].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[2][2])) {
+            if (gameBoard[0][0].contains("X")) {
+                return +1;
+            } else if (gameBoard[0][0].contains("O")) {
+                return -1;
+            }
+        }
+        if (gameBoard[0][2].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[2][0])) {
+            if (gameBoard[0][2].contains("X")) {
+                return +1;
+            } else if (gameBoard[0][2].contains("O")) {
+                return -1;
+            }
+        }
+        return 0;
     }
 
 
