@@ -60,7 +60,6 @@ public class Game {
 
     public void diagCheck(Board board) {
         String[][] gameBoard = board.currentBoard();
-
         // Checking for X win in each diagonal
         if (gameBoard[0][0].contains("X")) {
             if (gameBoard[0][0].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[2][2])) {
@@ -89,41 +88,11 @@ public class Game {
         draw = board.getX() + board.getO() == 9;
     }
 
-    public void playerCoordinates(Board board) {
-
-        String[][] gameBoard = board.currentBoard();
-
-        while (true) {
-            try {
-                System.out.print("Enter the coordinates: ");
-                String playerMove = scanner.nextLine();
-                String[] parts = playerMove.split(" ");
-                inputRow = Integer.parseInt(parts[0]);
-                inputCol = Integer.parseInt(parts[1]);
-
-                if (inputRow < 0 || inputCol < 0 || inputRow > 3 || inputCol > 3) {
-                    System.out.println("Coordinates should be from 1 to 3!");
-                    continue;
-                }
-                if (gameBoard[inputRow - 1][inputCol - 1].contains("X") ||
-                        gameBoard[inputRow - 1][inputCol - 1].contains("O")){
-                    System.out.println("This cell is occupied! Choose another one!");
-                    continue;
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("You should enter numbers!");
-                continue;
-            }
-            break;
-        }
-    }
-
     public void gameState(Board board) {
-
-        rowCheck(board);
-        diagCheck(board);
         drawCheck(board);
+        rowCheck(board);
         colCheck(board);
+        diagCheck(board);
     }
 
     public void playerVersusCPU() {
