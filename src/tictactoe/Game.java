@@ -6,9 +6,7 @@ public class Game {
     private boolean xWin;
     private boolean oWin;
     private boolean draw;
-    private int inputRow;
-    private int inputCol;
-    private final AI cpu;
+    private String currentTurn;
 
     public Game() {
 
@@ -16,7 +14,7 @@ public class Game {
         this.xWin = false;
         this.oWin = false;
         this.draw = false;
-        this.cpu = new AI();
+        this.currentTurn = "X";
     }
 
     public void rowCheck(Board board) {
