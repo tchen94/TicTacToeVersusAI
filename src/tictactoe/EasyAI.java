@@ -39,6 +39,6 @@ public class EasyAI {
             System.out.println("Making move level \"easy\"");
             break;
         }
-        board.updateBoard(row, col, gameLetter);
+        board.updateBoard(row - 1, col - 1, gameLetter);
     }
 }
