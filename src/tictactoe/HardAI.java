@@ -46,8 +46,6 @@ public class HardAI {
 
             bestMove(board);
             System.out.println("Making move level \"hard\"");
-            board.updateBoard(x + 1, y + 1, gameLetter);
-        }
     }
 
     public boolean isMovesLeft(Board board) {
