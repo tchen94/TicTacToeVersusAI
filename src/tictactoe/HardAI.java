@@ -44,13 +44,7 @@ public class HardAI {
 
     public void move(Board board) {
 
-        if (board.getX() + board.getO() == 0) {
-            x = random.nextInt(3) + 1;
-            y = random.nextInt(3) + 1;
-
-            board.updateBoard(x, y, gameLetter);
-        } else {
-            findBestMove(board);
+            bestMove(board);
             System.out.println("Making move level \"hard\"");
             board.updateBoard(x + 1, y + 1, gameLetter);
         }
