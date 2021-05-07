@@ -145,23 +145,18 @@ public class HardAI {
         }
     }
 
-    public void findBestMove(Board board) {
+    public void bestMove(Board board) {
 
         String[][] gameBoard = board.currentBoard();
 
-        int bestVal = -1000;
-        HardAI cpu = new HardAI();
-        cpu.setX(-1);
-        cpu.setY(-1);
+        int bestVal = Integer.MIN_VALUE;
 
         for (int row = 0; row < gameBoard.length; row++) {
             for (int col = 0; col <gameBoard[0].length; col++) {
                 if (gameBoard[row][col].contains(" ")) {
-
                     gameBoard[row][col] = gameLetter;
-                    int moveVal = minimax(board, 3, false);
+                    int moveVal = minimax(board, 0, false);
                     gameBoard[row][col] = " ";
-
                     if (moveVal > bestVal) {
                         x = row;
                         y = col;
@@ -170,5 +165,6 @@ public class HardAI {
                 }
             }
         }
+        board.updateBoard(x , y, gameLetter);
     }
 }
