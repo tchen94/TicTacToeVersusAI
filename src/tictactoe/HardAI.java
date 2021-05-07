@@ -105,7 +105,7 @@ public class HardAI {
 
         int score = evaluate(board);
 
-        if (score == 10) {
+        if (score == +10) {
             return score;
         }
 
