@@ -116,33 +116,40 @@ public class HardAI {
         if (!isMovesLeft(board)) {
             return 0;
         }
+        if (score == -10) {
+            return score;
+        }
+        if (!isMovesLeft((board))) {
+            return 0;
+        }
 
         if (isMax) {
-            int best = -1000;
+
+            int bestMax = Integer.MIN_VALUE;
 
             for (int row = 0; row < gameBoard.length; row++) {
                 for (int col = 0; col < gameBoard[0].length; col++) {
                     if (gameBoard[row][col].contains(" ")) {
                         gameBoard[row][col] = gameLetter;
-                        best = Math.max(best, minimax(board, depth + 1, !isMax));
+                        bestMax = Math.max(bestMax, minimax(board, depth + 1, false));
                         gameBoard[row][col] = " ";
                     }
                 }
             }
-            return best;
+            return bestMax;
         } else {
-            int best = 1000;
+            int bestMin = Integer.MAX_VALUE;
 
             for (int row = 0; row < gameBoard.length; row++) {
                 for (int col = 0; col < gameBoard[0].length; col++) {
                     if (gameBoard[row][col].contains(" ")) {
                         gameBoard[row][col] = opponent;
-                        best = Math.min(best, minimax(board, depth + 1, !isMax));
+                        bestMin = Math.min(bestMin, minimax(board, depth + 1, true));
                         gameBoard[row][col] = " ";
                     }
                 }
             }
-            return best;
+            return bestMin;
         }
     }
 
