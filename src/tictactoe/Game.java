@@ -131,7 +131,187 @@ public class Game {
         }
     }
 
-    private void cpuEasyVersusPlayer(EasyAI cpu, Player player, Board board) {
+    public void playerVersusMediumCPU(Player player, MediumAI cpu, Board board) {
+
+        while (true) {
+
+            gameState(board);
+
+            if (xWin || xWin && draw) {
+                System.out.println("X wins");
+                System.out.println();
+                reset(board);
+                break;
+            }
+            if (oWin || oWin && draw) {
+                System.out.println("O wins");
+                System.out.println();
+                reset(board);
+                break;
+            }
+            if (draw) {
+                System.out.println("Draw");
+                System.out.println();
+                reset(board);
+                break;
+            }
+
+            if (currentTurn.equals("X")) {
+                player.move(board);
+                currentTurn = "O";
+            } else {
+                cpu.move(board, player.getGameLetter());
+                currentTurn = "X";
+            }
+            board.printBoard();
+        }
+    }
+
+    public void playerVersusHardCPU(Player player, HardAI cpu, Board board) {
+
+        while (true) {
+
+            gameState(board);
+
+            if (xWin || xWin && draw) {
+                System.out.println("X wins");
+                System.out.println();
+                reset(board);
+                break;
+            }
+            if (oWin || oWin && draw) {
+                System.out.println("O wins");
+                System.out.println();
+                reset(board);
+                break;
+            }
+            if (draw) {
+                System.out.println("Draw");
+                System.out.println();
+                reset(board);
+                break;
+            }
+
+            if (currentTurn.equals("X")) {
+                player.move(board);
+                currentTurn = "O";
+            } else {
+                cpu.move(board);
+                currentTurn = "X";
+            }
+            board.printBoard();
+        }
+    }
+
+    public void cpuEasyVersusCPUEasy(EasyAI cpuOne, EasyAI cpuTwo, Board board) {
+
+        while (true) {
+
+            gameState(board);
+
+            if (xWin || xWin && draw) {
+                System.out.println("X wins");
+                System.out.println();
+                reset(board);
+                break;
+            }
+            if (oWin || oWin && draw) {
+                System.out.println("O wins");
+                System.out.println();
+                reset(board);
+                break;
+            }
+            if (draw) {
+                System.out.println("Draw");
+                System.out.println();
+                reset(board);
+                break;
+            }
+
+            if (currentTurn.equals("X")) {
+                cpuOne.move(board);
+                currentTurn = "O";
+            } else {
+                cpuTwo.move(board);
+                currentTurn = "X";
+            }
+            board.printBoard();
+        }
+    }
+
+    public void mediumCPUVersusMediumCPU(MediumAI cpuOne, MediumAI cpuTwo, Board board) {
+
+        while (true) {
+
+            gameState(board);
+
+            if (xWin || xWin && draw) {
+                System.out.println("X wins");
+                System.out.println();
+                reset(board);
+                break;
+            }
+            if (oWin || oWin && draw) {
+                System.out.println("O wins");
+                System.out.println();
+                reset(board);
+                break;
+            }
+            if (draw) {
+                System.out.println("Draw");
+                System.out.println();
+                reset(board);
+                break;
+            }
+
+            if (currentTurn.equals("X")) {
+                cpuOne.move(board, cpuTwo.getGameLetter());
+                currentTurn = "O";
+            } else {
+                cpuTwo.move(board, cpuOne.getGameLetter());
+                currentTurn = "X";
+            }
+            board.printBoard();
+        }
+    }
+
+    public void hardCPUVersusHardCPU(HardAI cpuOne, HardAI cpuTwo, Board board) {
+
+        while (true) {
+
+            gameState(board);
+
+            if (xWin || xWin && draw) {
+                System.out.println("X wins");
+                System.out.println();
+                reset(board);
+                break;
+            }
+            if (oWin || oWin && draw) {
+                System.out.println("O wins");
+                System.out.println();
+                reset(board);
+                break;
+            }
+            if (draw) {
+                System.out.println("Draw");
+                System.out.println();
+                reset(board);
+                break;
+            }
+
+            if (currentTurn.equals("X")) {
+                cpuOne.move(board);
+                currentTurn = "O";
+            } else {
+                cpuTwo.move(board);
+                currentTurn = "X";
+            }
+            board.printBoard();
+        }
+    }
+
+    public void hardCPUVersusPlayer(HardAI cpu, Player player, Board board) {
 
         while (true) {
 
@@ -203,144 +383,6 @@ public class Game {
         }
     }
 
-    public void cpuEasyVersusCPUEasy(EasyAI cpuOne, EasyAI cpuTwo, Board board) {
-
-        while (true) {
-
-            gameState(board);
-
-            if (xWin || xWin && draw) {
-                System.out.println("X wins");
-                System.out.println();
-                reset(board);
-                break;
-            }
-            if (oWin || oWin && draw) {
-                System.out.println("O wins");
-                System.out.println();
-                reset(board);
-                break;
-            }
-            if (draw) {
-                System.out.println("Draw");
-                System.out.println();
-                reset(board);
-                break;
-            }
-
-            if (currentTurn.equals("X")) {
-                cpuOne.move(board);
-                currentTurn = "O";
-            } else {
-                cpuTwo.move(board);
-                currentTurn = "X";
-            }
-            board.printBoard();
-        }
-    }
-
-    public void playerVersusMediumCPU(Player player, MediumAI cpu, Board board) {
-
-        while (true) {
-
-            gameState(board);
-
-            if (xWin || xWin && draw) {
-                System.out.println("X wins");
-                System.out.println();
-                reset(board);
-                break;
-            }
-            if (oWin || oWin && draw) {
-                System.out.println("O wins");
-                System.out.println();
-                reset(board);
-                break;
-            }
-            if (draw) {
-                System.out.println("Draw");
-                System.out.println();
-                reset(board);
-                break;
-            }
-
-            if (currentTurn.equals("X")) {
-                player.move(board);
-                currentTurn = "O";
-            } else {
-                cpu.move(board, player.getGameLetter());
-                currentTurn = "X";
-            }
-            board.printBoard();
-        }
-    }
-
-    public void mediumCPUVersusPlayer(MediumAI cpu, Player player, Board board) {
-
-        while (true) {
-
-            if (xWin || xWin && draw) {
-                System.out.println("X wins");
-                System.out.println();
-                reset(board);
-                break;
-            }
-            if (oWin || oWin && draw) {
-                System.out.println("O wins");
-                System.out.println();
-                reset(board);
-                break;
-            }
-            if (draw) {
-                System.out.println("Draw");
-                System.out.println();
-                reset(board);
-                break;
-            }
-
-            cpu.move(board, player.getGameLetter());
-            board.printBoard();
-            player.move(board);
-            board.printBoard();
-        }
-    }
-
-    public void mediumCPUVersusMediumCPU(MediumAI cpuOne, MediumAI cpuTwo, Board board) {
-
-        while (true) {
-
-            gameState(board);
-
-            if (xWin || xWin && draw) {
-                System.out.println("X wins");
-                System.out.println();
-                reset(board);
-                break;
-            }
-            if (oWin || oWin && draw) {
-                System.out.println("O wins");
-                System.out.println();
-                reset(board);
-                break;
-            }
-            if (draw) {
-                System.out.println("Draw");
-                System.out.println();
-                reset(board);
-                break;
-            }
-
-            if (currentTurn.equals("X")) {
-                cpuOne.move(board, cpuTwo.getGameLetter());
-                currentTurn = "O";
-            } else {
-                cpuTwo.move(board, cpuOne.getGameLetter());
-                currentTurn = "X";
-            }
-            board.printBoard();
-        }
-    }
-
     public int evaluate(Board board) {
         String[][] gameBoard = board.currentBoard();
 
@@ -396,6 +438,8 @@ public class Game {
         EasyAI cpuTwoEasy = new EasyAI();
         MediumAI cpuOneMedium = new MediumAI();
         MediumAI cpuTwoMedium = new MediumAI();
+        HardAI cpuOneHard = new HardAI();
+        HardAI cpuTwoHard = new HardAI();
         Player playerOne = new Player();
         Player playerTwo = new Player();
 
@@ -422,17 +466,14 @@ public class Game {
                     board.emptyBoard();
                     mediumCPUVersusMediumCPU(cpuOneMedium, cpuTwoMedium, board);
                     break;
-                case "start easy user":
-                    cpuOneEasy.setGameLetter("X");
-                    playerOne.setGameLetter("O");
+                case "start hard hard":
+                    cpuOneHard.setGameLetter("X");
+                    cpuOneHard.setOpponent("O");
+                    cpuTwoHard.setGameLetter("O");
+                    cpuTwoHard.setOpponent("X");
                     board.emptyBoard();
-                    cpuEasyVersusPlayer(cpuOneEasy, playerOne, board);
+                    hardCPUVersusHardCPU(cpuOneHard, cpuTwoHard, board);
                     break;
-                case "start medium user":
-                    cpuOneMedium.setGameLetter("X");
-                    playerOne.setGameLetter("O");
-                    board.emptyBoard();
-                    mediumCPUVersusPlayer(cpuOneMedium, playerOne, board);
                 case "start user easy":
                     playerOne.setGameLetter("X");
                     cpuOneEasy.setGameLetter("O");
@@ -444,6 +485,20 @@ public class Game {
                     cpuOneMedium.setGameLetter("O");
                     board.emptyBoard();
                     playerVersusMediumCPU(playerOne, cpuOneMedium, board);
+                    break;
+                case "start user hard":
+                    playerOne.setGameLetter("X");
+                    cpuOneHard.setGameLetter("O");
+                    cpuOneHard.setOpponent("X");
+                    board.emptyBoard();
+                    playerVersusHardCPU(playerOne, cpuOneHard, board);
+                    break;
+                case "start hard user":
+                    cpuOneHard.setGameLetter("X");
+                    cpuOneHard.setOpponent("O");
+                    playerOne.setGameLetter("O");
+                    board.emptyBoard();
+                    hardCPUVersusPlayer(cpuOneHard, playerOne, board);
                     break;
                 case "start user user":
                     playerOne.setGameLetter("X");
