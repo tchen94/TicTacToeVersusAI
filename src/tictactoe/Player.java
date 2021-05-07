@@ -48,6 +48,6 @@ public class Player {
             }
             break;
         }
-        board.updateBoard(row, col, gameLetter);
+        board.updateBoard(row - 1, col - 1, gameLetter);
     }
 }
