@@ -55,11 +55,11 @@ public class Board {
 
         switch (letter) {
             case "X":
-                board[row - 1][col - 1] = "X";
+                board[row][col] = "X";
                 x++;
                 break;
             case "O":
-                board[row - 1][col - 1] = "O";
+                board[row][col] = "O";
                 o++;
                 break;
         }
