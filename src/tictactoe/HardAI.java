@@ -1,16 +1,11 @@
-import java.util.Random;
-
 public class HardAI {
 
-    private final Random random;
     private String gameLetter;
     private String opponent;
-
     private int x;
     private int y;
 
     public HardAI() {
-        this.random = new Random();
         this.gameLetter = "";
         this.opponent = "";
     }
