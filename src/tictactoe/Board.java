@@ -1,33 +1,24 @@
 public class Board {
     private final String[][] board;
-    int x;
-    int o;
+    private int x;
+    private int o;
 
     public Board() {
         this.board = new String[3][3];
-        int x = 0;
-        int y = 0;
+        this.x = 0;
+        this.o = 0;
     }
 
-    public void setBoard(String[] input) {
-        int pos = 0;
+    public void emptyBoard() {
 
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
                 {
-                    board[row][col] = input[pos];
-                    pos++;
+                    board[row][col] = " ";
                 }
             }
         }
-
-        for (String string : input) {
-            if (string.contains("X")) {
-                x++;
-            } else if (string.contains("O")) {
-                o++;
-            }
-        }
+        printBoard();
     }
 
     public void printBoard() {
@@ -52,11 +43,25 @@ public class Board {
         return o;
     }
 
-    public void updateBoard(int row, int col) {
-        if (x > o) {
-            board[row - 1][col - 1] = "O";
-        } else if (o > x || o == x) {
-            board[row - 1][col - 1] = "X";
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setO(int o) {
+        this.o = o;
+    }
+
+    public void updateBoard(int row, int col, String letter) {
+
+        switch (letter) {
+            case "X":
+                board[row][col] = "X";
+                x++;
+                break;
+            case "O":
+                board[row][col] = "O";
+                o++;
+                break;
         }
     }
 
