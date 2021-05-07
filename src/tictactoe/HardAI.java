@@ -108,14 +108,6 @@ public class HardAI {
         if (score == +10) {
             return score;
         }
-
-        if (score == -10) {
-            return score;
-        }
-
-        if (!isMovesLeft(board)) {
-            return 0;
-        }
         if (score == -10) {
             return score;
         }
