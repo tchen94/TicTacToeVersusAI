@@ -28,12 +28,12 @@ public class MediumAI {
 
             if (blockSearch(board, opponentLetter)) {
                 System.out.println("Making move level \"medium\"");
-                board.updateBoard(x + 1, y + 1, gameLetter);
+                board.updateBoard(x, y, gameLetter);
                 break;
             }
             if (winSearch(board, gameLetter)) {
                 System.out.println("Making move level \"medium\"");
-                board.updateBoard(x + 1, y + 1, gameLetter);
+                board.updateBoard(x, y, gameLetter);
                 break;
             }
             if (!blockSearch(board, opponentLetter) && !winSearch(board, gameLetter)){
@@ -49,7 +49,7 @@ public class MediumAI {
                     break;
                 }
                 System.out.println("Making move level \"medium\"");
-                board.updateBoard(x, y, gameLetter);
+                board.updateBoard(x - 1, y - 1, gameLetter);
                 break;
             }
             blockSearch(board, opponentLetter);
